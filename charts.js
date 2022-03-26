@@ -101,8 +101,6 @@ function buildCharts(sample) {
 
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar-plot", data, layout);
-  });
-}
 
 // DELIVERABLE 2
 // Bubble chart
@@ -172,3 +170,5 @@ function buildCharts(sample) {
 
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot('gauge', data3, layout3);
+  });
+}
