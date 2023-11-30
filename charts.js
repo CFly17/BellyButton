@@ -47,8 +47,13 @@ function buildMetadata(sample) {
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
     Object.entries(result).forEach(([key, value]) => {
-      PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-    });
+      // Check if the key is 'wfreq' and change it to 'Washing Frequency'
+      if(key === 'wfreq') {
+        PANEL.append("h6").text(`Washing Frequency: ${value}`);
+      } else {
+        PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+  }
+});
 
   });
 }
@@ -97,17 +102,30 @@ function buildCharts(sample) {
       // layoutpaper_bgcolor: "bisque",
       
       coloraxis: "black",
-      font_family: "Courier New",
+      font_family: "Gill Sans",
       paper_bgcolor: '#eee',
       title: {
         text: 'Top 10 Bacteria Cultures Found',
         font: {
-          family: 'Courier New, monospace',
+          family: 'Gill Sans',
           size: 30
         }
       },
-      // xaxis: { title: "Concentration" },
-      // yaxis: { title: "Bacteria Name" }
+      xaxis: { title: "Concentration" },
+      yaxis: {
+        title: {
+          text: "Bacteria ID",
+          standoff: 10
+        },
+        title_standoff: 30, // Adjust this value as needed to increase the space
+        tickfont: {
+          size: 10 // Adjust this value to change the font size of the OTU IDs
+        },
+        automargin: true
+      },
+      margin: {
+        l: 100, // Adjust the left margin to create more space
+      }
     };
 
     // 10. Use Plotly to plot the data with the layout. 
@@ -135,7 +153,7 @@ function buildCharts(sample) {
       title: {
         text: "Bacteria Cultures per Sample",
         font: {
-          family: 'Courier New, monospace',
+          family: 'Gill Sans',
           size: 30
         }
       },
@@ -144,7 +162,15 @@ function buildCharts(sample) {
       hovermode: 'closest',
       showlegend: false,
       height: 600,
-      width: 1200
+      width: 1200,
+      xaxis: { title: "Bacteria ID" },
+      yaxis: {
+        title: "Concentration",
+        title_standoff: 30, // Adjust this value as needed to increase the space
+        tickfont: {
+          size: 10 // Adjust this value to change the font size of the OTU IDs
+        }
+      },
     };
 
     // 3. Use Plotly to plot the data with the layout.
@@ -164,7 +190,7 @@ function buildCharts(sample) {
       title: {
         text: "Belly Button Washing Frequency",
         font: {
-          family: 'Courier New, monospace',
+          family: 'Gill Sans',
           size: 30
         }
       },

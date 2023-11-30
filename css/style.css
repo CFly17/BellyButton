@@ -1,0 +1,25 @@
+/* style.css */
+#chart-container {
+    display: flex;
+    /* Establishes a flex container */
+    justify-content: center;
+    /* Centers children along the main axis */
+    align-items: center;
+    /* Centers children along the cross axis */
+    height: 100%;
+    /* Gives a specific height to the container */
+}
+
+#gauge {
+    margin: auto;
+    /* Additional margin auto for centering */
+    /* Set a specific height or width if necessary */
+}
+
+.jumbotron {
+    background-image: url("../images/bacterial_streak.jpg");
+    background-position: center;
+    text-align: left;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
